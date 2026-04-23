@@ -15,6 +15,7 @@ public class LinkedResourceNotFoundException extends RuntimeException {
         this.resourceId = resourceId;
     }
 
+
     public String getResourceType() {
         return resourceType;
     }
@@ -23,3 +24,4 @@ public class LinkedResourceNotFoundException extends RuntimeException {
         return resourceId;
     }
 }
+
