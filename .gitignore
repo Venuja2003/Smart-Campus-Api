@@ -1,0 +1,16 @@
+# NetBeans IDE files
+nb-configuration.xml
+nbactions.xml
+nbproject/
+.nb-gradle/
+
+# Maven build output
+target/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IntelliJ (just in case)
+.idea/
+*.iml
