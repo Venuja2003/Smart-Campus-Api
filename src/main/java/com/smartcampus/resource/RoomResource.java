@@ -18,22 +18,6 @@ import java.util.Map;
  * LIST RESPONSE DESIGN (IDs vs Full Objects):
  * Returning full room objects in a list response is preferred here for usability,
  * but there are trade-offs:
- *
- * - Returning only IDs: Minimal bandwidth, but forces clients to make N additional
- *   GET requests to fetch details — the "N+1 problem". Better for massive datasets.
- *
- * - Returning full objects: Slightly larger payload, but clients get everything they
- *   need in one request. Appropriate for this domain where room data is small.
- *
- * The best practice is to return full objects for collections of manageable size
- * and provide pagination for large collections.
- *
- * DELETE IDEMPOTENCY:
- * In this implementation, DELETE is idempotent in the HTTP sense: sending the same
- * DELETE request multiple times produces the same server state (the room is absent).
- * However, the second call returns 404 Not Found rather than 204 No Content.
- * This is acceptable — idempotency refers to the STATE outcome, not the response code.
- * The resource is gone either way.
  */
 @Path("/rooms")
 @Produces(MediaType.APPLICATION_JSON)

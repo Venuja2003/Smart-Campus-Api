@@ -11,16 +11,6 @@ import java.util.logging.Logger;
 
 /**
  * Global catch-all exception mapper for any unhandled Throwable.
- *
- * SECURITY NOTE: Exposing raw Java stack traces to API consumers is dangerous because:
- * 1. Stack traces reveal internal class names, package structure, and framework versions,
- *    allowing attackers to identify known vulnerabilities in those specific versions.
- * 2. They expose file paths and line numbers, giving attackers a roadmap to target
- *    specific code locations.
- * 3. They may leak sensitive data from method parameters that appear in exception messages.
- * 4. Framework-specific traces reveal the exact server/container technology stack,
- *    narrowing down exploit options for the attacker.
- *
  * This mapper ensures only a safe, generic message is returned to the client
  * while the full error is logged securely on the server side.
  */

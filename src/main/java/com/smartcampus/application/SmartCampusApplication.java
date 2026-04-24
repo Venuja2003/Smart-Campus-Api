@@ -18,12 +18,6 @@ import java.util.Set;
  * By default, JAX-RS resource classes follow a PER-REQUEST lifecycle:
  * a new instance is created for every incoming HTTP request and discarded afterward.
  * This means resource classes are NOT singletons by default.
- *
- * Because of this, shared mutable state (like our in-memory HashMaps) MUST NOT
- * be stored as instance fields in resource classes. Instead, we use a static
- * DataStore singleton to hold all data, ensuring it persists across requests
- * and is shared consistently. In a multi-threaded environment, these collections
- * should use ConcurrentHashMap to prevent race conditions.
  */
 @ApplicationPath("/api/v1")
 public class SmartCampusApplication extends Application {

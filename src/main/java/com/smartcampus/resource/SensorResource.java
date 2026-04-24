@@ -13,24 +13,6 @@ import java.util.stream.Collectors;
 
 /**
  * Resource class managing /api/v1/sensors
- *
- * @Consumes(MediaType.APPLICATION_JSON) BEHAVIOUR:
- * If a client sends a POST with Content-Type: text/plain or application/xml,
- * JAX-RS will reject the request before it even reaches the method body.
- * The runtime returns HTTP 415 Unsupported Media Type automatically, because no
- * matching resource method is found for that content type. This protects the
- * server from attempting to deserialize incompatible payloads.
- *
- * QUERY PARAM vs PATH SEGMENT for filtering:
- * Using @QueryParam for filtering (?type=CO2) is superior to path-based filtering
- * (/sensors/type/CO2) because:
- * - Query params are semantically optional — they filter an existing collection
- *   rather than identifying a distinct sub-resource.
- * - /sensors/type/CO2 implies "type" is a sub-resource of "sensors", which is
- *   architecturally misleading and conflicts with /sensors/{sensorId}.
- * - Query parameters are the standard convention for search/filter/sort across
- *   all major REST APIs (GitHub, Twitter, Google).
- * - Multiple filters compose naturally: ?type=CO2&status=ACTIVE
  */
 @Path("/sensors")
 @Produces(MediaType.APPLICATION_JSON)

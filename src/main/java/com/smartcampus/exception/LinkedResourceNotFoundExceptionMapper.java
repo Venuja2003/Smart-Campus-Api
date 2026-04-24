@@ -9,14 +9,6 @@ import java.util.Map;
 
 /**
  * Maps LinkedResourceNotFoundException to HTTP 422 Unprocessable Entity.
- *
- * HTTP 422 is more semantically accurate than 404 here because:
- * - The request URL itself is valid and was found (no 404 on the endpoint).
- * - The JSON payload was syntactically well-formed (no 400 Bad Request).
- * - The issue is a semantic one: a referenced foreign key (roomId) inside the
- *   payload points to a resource that does not exist. The server understood the
- *   request but cannot process it due to a logical data integrity violation.
- * - 422 signals to the client: "your data structure is fine, but the content is wrong."
  */
 @Provider
 public class LinkedResourceNotFoundExceptionMapper implements ExceptionMapper<LinkedResourceNotFoundException> {
