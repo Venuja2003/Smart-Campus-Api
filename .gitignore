@@ -2,7 +2,6 @@
 target/
 
 # NetBeans IDE files
-nb-configuration.xml
 nbactions.xml
 nbproject/
 .nb-gradle/
